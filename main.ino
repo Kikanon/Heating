@@ -90,28 +90,16 @@ void displayLCD(){
     lcd.clear();
     
     lcd.setCursor(0, 0);// prva vrsta (pec)
-    lcd.print("Pec:");
-    lcd.print(tempPec);
-    lcd.print("C  ");
-    lcd.print(statePec==1?"ON":"OFF");
+    lcd.print("Pec:" + String(tempPec) + "C  " + statePec==1?"ON":"OFF");
 
     lcd.setCursor(0, 1);// druga vrsta (bojler)
-    lcd.print("Boi:");
-    lcd.print(tempBoi);
-    lcd.print("C  ");
-    lcd.print(stateBoi==1?"ON":"OFF");
+    lcd.print("Boi:" + String(tempBoi) + "C  " + stateBoi==1?"ON":"OFF");
     }
 	
 void controlPec(){
-    if (tempPec < 40)
-    {
-      statePec = 0;
-    }
-    if (tempPec >= 45)
-    {
-      statePec = 1;
-    }
-	setPec(statePec);
+    if (tempPec < 40) statePec = 0;
+    if (tempPec >= 45) statePec = 1;
+    setPec(statePec);
 }
 void controlBoi(){
     if (tempPec >= 50 && tempBoi < 70 && tempPec >= tempBoi + 5 || tempPec >= 100 || stateOil){
@@ -132,15 +120,8 @@ void debug(){
 	float tempPec = 0, tempBoi = 0; //temparatura v peci in bojlerju
     bool statePec = 0, stateBoi = 0, stateOil = 1; //stanje relejev a crpalke
 	
-	Serial.println("Temparature(Pec Boi): ");
-	Serial.print(tempPec);
-	Serial.print(" ");
-	Serial.print(tempBoi);
-	
-	Serial.println("Stanja(Pec Boi Oil): ");
-	Serial.print(statePec);
-	Serial.print(" ");
-	Serial.print(stateBoi);
-	Serial.print(" ");
-	Serial.print(stateOil);
+	Serial.println("Temparature(Pec Boi): " + String(tempPec) + " " + String(tempBoi));
+
+	Serial.println("Stanja(Pec Boi Oil): " + String(statePec) + " " + String(stateBoi)+ " " + String(stateOil));
+
 }
