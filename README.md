@@ -1,7 +1,10 @@
 # Heating
 Managing relays that turn on pumps that warm the house
 
-Wrote code couple years back.
-Need to update it, since is was written terribly.
+Fixed up the code a bit. Got the address of the third sensor.
 
-Also need to add logic for another heat sensor that gives temperature of returning water from radiators.
+//TODO
+Implement time trough internet.
+Change microcontrolef from Arduino UNO to ESP32 with Wifi.
+Update logic to include data from return sensor.
+Make it possible to connect with my PC and see the data sensord are reading.
